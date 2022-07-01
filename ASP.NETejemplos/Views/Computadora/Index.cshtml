@@ -1,0 +1,38 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<center>
+
+    <h3>Computadora</h3>
+    <table border="1">
+        <tr>
+            <td>ID</td>
+            <td>@ViewBag.computadora.id</td>
+        </tr>
+        <tr>
+            <td>Nombre</td>
+            <td>@ViewBag.computadora.nombre</td>
+        </tr>
+        <tr>
+            <td>Imagen</td>
+            <td>
+                <img src="~/imagenes/@ViewBag.computadora.imagen" width="200"/>
+            </td>
+        </tr>
+        <tr>
+            <td>Precio</td>
+            <td>@ViewBag.computadora.precio</td>
+        </tr>
+        <tr>
+            <td>Cantidad</td>
+            <td>@ViewBag.computadora.cantidad</td>
+        </tr>
+        <tr>
+            <td>SubTotal</td>
+            <td>@(ViewBag.computadora.cantidad * ViewBag.computadora.precio) </td>
+        </tr>
+    </table>
+</center>
