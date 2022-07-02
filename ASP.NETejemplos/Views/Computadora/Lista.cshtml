@@ -1,0 +1,30 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<center>
+    <h2>Lista de computadoras</h2>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>NOMBRE</th>
+            <th>IMAGEN</th>
+            <th>PRECIO</th>
+            <th>CANTIDAD</th>
+            <th>SUBTOTAL</th>
+        </tr>
+        @foreach (var comp in ViewBag.computadora)
+        {
+            <tr>
+                <td>@comp.id</td>
+                <td>@comp.nombre</td>
+                <td><img src="~/imagenes/@comp.imagen" width="200"/></td>
+                <td>@comp.precio</td>
+                <td>@comp.cantidad</td>
+                <td>@(comp.precio * comp.cantidad)</td>
+            </tr>
+        }
+    </table>
+</center>
