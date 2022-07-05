@@ -18,8 +18,8 @@ namespace ASP.NETejemplos.Controllers
             ViewBag.fecha_nac = DateTime.Now;
             return View();
         }
-        [Route("valores/{edad}")]
-        public IActionResult PruebasAppSettings(int edad)
+        [Route("valores/{edad}/{estatura}")]
+        public IActionResult PruebasAppSettings(int edad, double estatura)
         {
             var constructor = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
@@ -31,6 +31,7 @@ namespace ASP.NETejemplos.Controllers
             ViewBag.valor4 = configuracion["MisAjustes:ajusteDebug"];
             ViewBag.valor5 = configuracion["Logging:LogLevel:Microsoft"];
             ViewBag.valor6 = edad;
+            ViewBag.valor7 = estatura;
             return View();
         }
     }
