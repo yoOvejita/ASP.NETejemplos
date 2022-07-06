@@ -17,7 +17,24 @@ namespace ASP.NETejemplos.Controllers
                 new Lenguaje(){ id="3", nombre="Java", tickeado = false},
                 new Lenguaje(){ id="4", nombre="Python", tickeado = true}
             };
-            return View();
+            var cargos = new List<Cargo>() {
+                new Cargo{id = "c0", nombre="auxiliar"},
+                new Cargo{id = "c1", nombre="consultor"},
+                new Cargo{id = "c2", nombre="tecnico"}
+            };
+            cuentavm.cargos = new Microsoft.AspNetCore.Mvc.Rendering.SelectList(cargos, "id", "nombre");
+            return View("Index",cuentavm);
+        }
+
+        [HttpPost]
+        public  IActionResult Guardar(CuentaVM cvm, List<Lenguaje> lenguajes)
+        {
+            cvm.cuenta.lenguajes = new List<string>();
+            foreach(var len in lenguajes)
+                if (len.tickeado)
+                    cvm.cuenta.lenguajes.Add(len.id);
+            ViewBag.c = cvm.cuenta;
+            return View("Registrado");
         }
     }
 }
