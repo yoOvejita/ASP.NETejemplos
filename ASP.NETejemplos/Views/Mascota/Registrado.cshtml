@@ -1,0 +1,27 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<table border="1">
+    <tr>
+        <td>ID</td>
+        <td>@ViewBag.mascota.id</td>
+    </tr>
+    <tr>
+        <td>Nombre</td>
+        <td>@ViewBag.mascota.nombre</td>
+    </tr>
+    <tr>
+        <td>Precio</td>
+        <td>@ViewBag.mascota.precio</td>
+    </tr>
+    <tr>
+        <td>Imagen</td>
+        <td>
+            <img src="~/imagenes/@ViewBag.mascota.imagen" width="150"/>
+        </td>
+    </tr>
+</table>
+
+<a asp-controller="Mascota" asp-action="Index">Volver...</a>

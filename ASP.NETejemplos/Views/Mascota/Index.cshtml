@@ -1,0 +1,34 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model ASP.NETejemplos.Models.Mascota
+
+<center>
+    <form asp-controller="Mascota" asp-action="Guardar" method="post">
+        <table>
+            <tr>
+                <td>Id</td>
+                <td><input  type="text" asp-for="id"/></td>
+            </tr>
+            <tr>
+                <td>Nombre</td>
+                <td><input type="text" asp-for="nombre"/></td>
+            </tr>
+            <tr>
+                <td>Precio</td>
+                <td><input type="text" asp-for="precio"/></td>
+            </tr>
+            <tr>
+                <td>Imagen</td>
+                <td><input type="file" id="img"/></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Registrar"/></td>
+                <td></td>
+            </tr>
+        </table>
+    </form>
+</center>
