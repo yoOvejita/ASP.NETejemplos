@@ -36,5 +36,21 @@ namespace ASP.NETejemplos.Controllers
             ViewBag.c = cvm.cuenta;
             return View("Registrado");
         }
+
+        [HttpPost]
+        public IActionResult destino1()
+        {
+            return View("destino1");
+        }
+        [HttpPost]
+        public IActionResult destino2()
+        {
+            return View("destino2");
+        }
+        [HttpPost]
+        public IActionResult destino3()
+        {
+            return View("destino3");
+        }
     }
 }
