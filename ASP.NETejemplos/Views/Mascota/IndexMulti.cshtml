@@ -4,35 +4,30 @@
 @{
 }
 
-@model ASP.NETejemplos.Models.Mascota
+@model ASP.NETejemplos.Models.MascotaMulti
 
 <center>
-    <form asp-controller="Mascota" asp-action="Guardar" method="post" enctype="multipart/form-data">
+    <form asp-controller="Mascota" asp-action="GuardarMultiple" method="post" enctype="multipart/form-data">
         <table>
             <tr>
                 <td>Id</td>
                 <td><input  type="text" asp-for="id"/></td>
-                <td><span asp-validation-for="id"></span></td>
             </tr>
             <tr>
                 <td>Nombre</td>
                 <td><input type="text" asp-for="nombre"/></td>
-                <td><span asp-validation-for="nombre"></span></td>
             </tr>
             <tr>
                 <td>Precio</td>
                 <td><input type="text" asp-for="precio"/></td>
-                <td><span asp-validation-for="precio"></span></td>
-                
             </tr>
             <tr>
                 <td>Imagen</td>
-                <td><input type="file" name="img" multiple></td>
-                <td></td>
+                <td><input type="file" name="imgs" multiple="multiple"></td>
             </tr>
             <tr>
                 <td><input type="submit" value="Registrar"/></td>
-                <td></td><td></td>
+                <td></td>
             </tr>
         </table>
     </form>
