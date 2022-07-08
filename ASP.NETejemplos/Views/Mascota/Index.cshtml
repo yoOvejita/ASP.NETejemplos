@@ -7,7 +7,7 @@
 @model ASP.NETejemplos.Models.Mascota
 
 <center>
-    <form asp-controller="Mascota" asp-action="Guardar" method="post">
+    <form asp-controller="Mascota" asp-action="Guardar" method="post" enctype="multipart/form-data">
         <table>
             <tr>
                 <td>Id</td>
@@ -23,7 +23,7 @@
             </tr>
             <tr>
                 <td>Imagen</td>
-                <td><input type="file" id="img"/></td>
+                <td><input type="file" name="img" multiple></td>
             </tr>
             <tr>
                 <td><input type="submit" value="Registrar"/></td>

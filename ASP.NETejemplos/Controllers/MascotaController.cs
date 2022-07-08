@@ -8,8 +8,8 @@ namespace ASP.NETejemplos.Controllers
 {
     public class MascotaController : Controller
     {
-        private IHostingEnvironment ihostingEnvironment;
-        public MascotaController(IHostingEnvironment ihostingEnvironment) {
+        private IWebHostEnvironment ihostingEnvironment;
+        public MascotaController(IWebHostEnvironment ihostingEnvironment) {
             this.ihostingEnvironment = ihostingEnvironment;
         }
         public IActionResult Index()
