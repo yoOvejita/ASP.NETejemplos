@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.IO;
 using Microsoft.AspNetCore.Hosting;
 using System.Collections.Generic;
+using ASP.NETejemplos.Helpers;
 
 namespace ASP.NETejemplos.Controllers
 {
@@ -58,6 +59,47 @@ namespace ASP.NETejemplos.Controllers
             }
             ViewBag.mascotas = m;
             return View("RegistradoMulti");
+        }
+
+        public IActionResult ManejoSesion()
+        {
+            HttpContext.Session.SetInt32("edad", 4);
+            HttpContext.Session.SetString("apellido","Perales");
+            Mascota ms = new Mascota
+            {
+                id="444",
+                nombre="Pepi",
+                precio=45,
+                imagen="uno.jpeg"
+            };
+            SessionHelper.setObjetoToJson(HttpContext.Session, "mascota", ms);
+
+            List<Mascota> mascotas = new List<Mascota>()
+            {
+                new Mascota
+                {
+                    id = "111",
+                    nombre = "Anni",
+                    precio = 50,
+                    imagen = "tres.jpeg"
+                },
+                new Mascota
+                {
+                    id = "222",
+                    nombre = "Noni",
+                    precio = 60,
+                    imagen = "dos.jpeg"
+                },
+                new Mascota
+                {
+                    id = "333",
+                    nombre = "Rambo",
+                    precio = 70,
+                    imagen = "uno.jpeg"
+                }
+            };
+            SessionHelper.setObjetoToJson(HttpContext.Session, "mascotas", mascotas);
+            return View("ManejoSesion");
         }
     }
 }

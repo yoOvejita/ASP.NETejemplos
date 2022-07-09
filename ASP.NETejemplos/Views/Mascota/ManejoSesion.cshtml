@@ -1,0 +1,54 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@using Microsoft.AspNetCore.Http;
+@using ASP.NETejemplos.Helpers;
+
+<h3>Datos</h3>
+
+Edad: @Context.Session.GetInt32("edad")
+<br/>
+Apellido: @Context.Session.GetString("apellido")
+<br/>
+
+<h3>Mascota</h3>
+
+@{
+    Mascota m = SessionHelper.getJsonToObjeto<Mascota>(Context.Session, "mascota");
+
+}
+
+id: @m.id
+<br/>
+Nombre: @m.nombre
+<br/>
+Precio: @m.precio
+<br/>
+Imagen: <img src="~/imagenes/@m.imagen" width="100"/>
+
+@{
+    List<Mascota> ms = SessionHelper.getJsonToObjeto<List<Mascota>>(Context.Session, "mascotas");
+
+}
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Precio</th>
+        <th>Imagen</th>
+    </tr>
+    @foreach (var mm in ms)
+    {
+        <tr>
+            <td> @mm.id</td>
+            <td>@mm.nombre</td>
+            <td>@mm.precio</td>
+            <td>
+                <img src="~/imagenes/@mm.imagen" width="100"/>
+            </td>
+        </tr>
+    }
+</table>

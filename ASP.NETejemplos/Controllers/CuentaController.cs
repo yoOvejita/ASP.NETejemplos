@@ -1,6 +1,7 @@
 ﻿using ASP.NETejemplos.Models;
 using ASP.NETejemplos.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 using System.Collections.Generic;
 
 namespace ASP.NETejemplos.Controllers
@@ -51,6 +52,33 @@ namespace ASP.NETejemplos.Controllers
         public IActionResult destino3()
         {
             return View("destino3");
+        }
+
+        public IActionResult IndexCuenta()
+        {
+            return View("IndexCuenta");
+        }
+        [HttpPost]
+        public IActionResult Login(string usuario, string pass)
+        {
+            if(usuario != null && usuario.Equals("pepe") && pass != null && pass.Equals("123"))
+            {
+                HttpContext.Session.SetString("user", usuario);
+                return View("Bienvenido");
+            }
+            else
+            {
+                ViewBag.error = "Credenciales erradas";
+                return View("IndexCuenta");
+            }
+        }
+
+        public IActionResult Logout()
+        {
+            
+                HttpContext.Session.Remove("user");
+                return RedirectToAction("IndexCuenta");
+            
         }
     }
 }
